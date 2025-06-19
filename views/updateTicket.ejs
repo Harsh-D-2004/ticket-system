@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Update Ticket</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      border: none;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Update Ticket</h2>
+    <form action="/users/UpdateTicket/<%= ticket._id %>" method="POST">
+
+      <label for="title">Title:</label>
+      <input type="text" name="title" value="<%= ticket.title %>" required>
+
+      <label for="description">Description:</label>
+      <textarea name="description" rows="4"><%= ticket.description %></textarea>
+
+      <label for="category">Category (optional):</label>
+      <input type="text" name="category" value="<%= ticket.category || '' %>">
+
+    <% if (role === 'admin') { %>
+        <label for="assignedTo">Assign to Agent:</label>
+        <select name="assignedTo" required>
+            <% agents.forEach(agent => { %>
+            <option value="<%= agent._id %>" <%= ticket.assignedTo == agent._id ? "selected" : "" %>>
+                <%= agent.name %>
+            </option>
+            <% }) %>
+        </select>
+    <% } %>
+
+
+      <label for="status">Status:</label>
+      <select name="status" required>
+        <option value="Open" <%= ticket.status === "Open" ? "selected" : "" %>>Open</option>
+        <option value="Closed" <%= ticket.status === "Closed" ? "selected" : "" %>>Closed</option>
+        <option value="Resolved" <%= ticket.status === "Resolved" ? "selected" : "" %>>Resolved</option>
+      </select>
+
+      <label for="reply">Add Reply:</label>
+      <textarea name="reply" rows="3" placeholder="Write a reply..."></textarea>
+
+      <button type="submit">Update Ticket</button>
+    </form>
+  </div>
+</body>
+</html>
