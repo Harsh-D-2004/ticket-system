@@ -63,3 +63,28 @@ npm install
 npm run dev
 ```
 Server runs on: http://localhost:3000
+
+## 🚀 Deployment
+
+Live Demo: [Support Ticket System on Render](https://ticket-system-1-srwd.onrender.com/users/register)
+
+---
+
+### 👤 Demo Credentials
+
+#### 🧑‍💻 Customer Login
+- **Email:** h@123.com  
+- **Password:** 12345
+
+#### 👨‍💼 Admin Login
+- **Email:** admin@gmail.com  
+- **Password:** 12345
+
+#### 🎧 Agent 1 Login
+- **Email:** a1@gmail.com  
+- **Password:** 12345
+
+#### 🎧 Agent 2 Login
+- **Email:** a2@gmail.com  
+- **Password:** 12345
+
