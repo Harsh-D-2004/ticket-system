@@ -1,4 +1,4 @@
-import User from "../models/user.js";
+import User from "../models/User.js";
 import bcrypt from "bcrypt";
 import Ticket from "../models/Ticket.js";
 import { Octokit } from "@octokit/core";

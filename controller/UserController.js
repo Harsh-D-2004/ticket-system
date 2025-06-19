@@ -1,6 +1,6 @@
 import UserService from "../service/UserService.js";
 import Ticket from "../models/Ticket.js";
-import User from "../models/user.js";
+import User from "../models/User.js";
 
 export function showRegister(req, res){
   res.render('register');
